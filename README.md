@@ -10,7 +10,7 @@ Batas wilayah Polda, Polres, dan Polsek untuk dashboard **PETA KRIMINALITAS** (v
 |---|---|---|---|
 | `polda.json` | 38 | 7,4 MB | `GID_1` = kode satker Polda |
 | `polres.json` | 511 | 12,8 MB | `GID_2` = kode satker Polres |
-| `polsek.json` | 5.347 | 21,7 MB | `GID_3` = kode satker Polsek |
+| `polsek.json` | 5.365 | 21,8 MB | `GID_3` = kode satker Polsek |
 
 Setiap fitur memuat `GID_0..GID_3` (kode satker), `NAME_0..NAME_3` (nama satker),
 serta `KODE_SATUAN` dan `NAMA_SATUAN` sesuai master resmi.
@@ -21,7 +21,7 @@ serta `KODE_SATUAN` dan `NAMA_SATUAN` sesuai master resmi.
 |---|---|---|
 | `Lampiran_B_Polda.geojson` | 36 | 7,2 MB |
 | `Lampiran_B_Polres.geojson` | 511 | 12,9 MB |
-| `Lampiran_B_Polsek.geojson` | 5.347 | 22,6 MB |
+| `Lampiran_B_Polsek.geojson` | 5.365 | 22,7 MB |
 
 Ketiganya berkunci `Kode Satuan` Lampiran B (Master Kode Satuan Polri) dan membawa
 14 kolom master — Nama Satuan, ID Satuan, Polda & Polres Induk, Provinsi, Kabupaten/Kota,
@@ -33,7 +33,7 @@ Kecamatan — plus `Luas_km2`. Bisa dipakai langsung tanpa tabel perantara.
 |---|---|---|---|
 | Polda | 36 | 36 | 100% |
 | Polres | 514 | 511 | 99,4% |
-| Polsek | 5.454 | 5.347 | 98,0% |
+| Polsek | 5.454 | 5.365 | 98,4% |
 
 Bareskrim Polri tidak punya poligon karena memang tidak berwilayah teritorial.
 
@@ -43,15 +43,27 @@ pindah ke kode Polda Papua Tengah: `060.01.32.24` → `060.01.37.01` (Intan Jaya
 Master masih memuat kedua kode; wilayahnya hanya boleh dimiliki satu, dan yang dipakai
 adalah kode Polda Papua Tengah karena ketiga kabupatennya memang berada di provinsi itu.
 
-**107 Polsek tanpa poligon**, dengan tiga sebab:
+**89 Polsek tanpa poligon**, dengan tiga sebab:
 
 | Sebab | Jumlah |
 |---|---|
 | Kecamatan senama sudah dikuasai satuan lain | 47 |
 | Bernama kota/desa, bukan nama kecamatan mana pun (mis. Polsek Sibuhuan) | 35 |
-| Satuan fungsional — pelabuhan, bandara, kawasan — tanpa wilayah kecamatan | 25 |
+| Satuan fungsional yang belum terpetakan sebagai area di OpenStreetMap | 7 |
 
 Melengkapinya butuh daftar kecamatan/desa per Polsek dari Polri, bukan tebakan nama.
+
+**Satuan fungsional** — Polsek kawasan pelabuhan dan bandara tidak berwilayah kecamatan, jadi
+poligonnya diambil dari batas kawasannya di OpenStreetMap: 18 satuan sudah terpasang (antara
+lain Bandara Kualanamu, Sultan Hasanuddin, Sam Ratulangi, Sentani, Mozes Kilangin, Djalaluddin;
+Pelabuhan Tanjung Emas, Trisakti, Sunda Kelapa, Nizam Zachman Muara Baru, Kalibaru/New Priok,
+Boom Baru, Jayapura, Sorong, Bitung, Sampit, Dobo, Serui). Masing-masing diukir dari Polsek
+teritorial yang memuatnya, sehingga tidak menimbulkan tumpang tindih.
+
+Tujuh sisanya belum ada padanan areanya di OpenStreetMap: Polsek KPM (Tanjung Jabung Barat),
+SKP Banten (Cilegon), KSKP (Cilacap), Kawasan Pelabuhan Mentaya, Kawasan Pelabuhan Bau-Bau,
+Kawasan Pelabuhan Kwadang, dan satu Polsek Kawasan Bandara di Polres Gorontalo yang menunjuk
+bandara yang sama dengan Polsek Kawasan Bandara Djalaludin — kemungkinan baris satker kembar.
 
 **Catatan kolom `Nama Kecamatan` pada master:** kolom itu tidak dipakai untuk menentukan
 kepemilikan wilayah karena banyak yang keliru — lima Polsek berbeda di Polresta Manokwari
@@ -115,6 +127,6 @@ sesuai Kepmendagri No. 300.2.2-2430 Tahun 2025. Lisensi MIT:
 > OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 > DEALINGS IN THE SOFTWARE.
 
-**Kawasan pelabuhan dan bandara** (Polres Pelabuhan Tanjung Priok, Polres Kawasan Bandara
-Ngurah Rai) — © OpenStreetMap contributors, tersedia di bawah
+**Kawasan pelabuhan dan bandara** (2 Polres dan 18 Polsek kawasan) — © OpenStreetMap
+contributors, tersedia di bawah
 [Open Database License (ODbL)](https://www.openstreetmap.org/copyright).
